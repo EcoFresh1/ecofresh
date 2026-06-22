@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoFresh® | Embalagem Inteligente Biodegradável</title>
+  <meta name="description" content="EcoFresh® é uma embalagem inteligente biodegradável com óleo-resina de copaíba, criada para conservar alimentos naturalmente e reduzir o impacto ambiental do plástico." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --dark:#06150d;
+      --deep:#0c2f20;
+      --green:#2E7D32;
+      --green2:#79c66d;
+      --gold:#D4A017;
+      --cream:#f7f1e1;
+      --white:#fff;
+      --muted:#6a7a70;
+      --text:#112018;
+      --shadow:0 30px 100px rgba(6,21,13,.18);
+      --radius:36px;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Inter',sans-serif;
+      background:#fbfaf6;
+      color:var(--text);
+      overflow-x:hidden;
+    }
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1180px,92%);margin:auto}
+
+    header{
+      position:fixed;
+      top:0;left:0;width:100%;
+      z-index:100;
+      padding:16px 0;
+      background:rgba(6,21,13,.72);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,255,255,.10);
+    }
+    nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{
+      display:flex;align-items:center;gap:11px;
+      color:#fff;font-weight:950;font-size:1.2rem;letter-spacing:-.04em;
+    }
+    .brand-mark{
+      width:42px;height:42px;border-radius:16px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--green2),var(--gold));
+      color:var(--dark);font-size:1.25rem;
+      box-shadow:0 14px 35px rgba(212,160,23,.20);
+    }
+    .links{display:flex;gap:26px;color:rgba(255,255,255,.75);font-weight:800;font-size:.9rem}
+    .links a:hover{color:var(--gold)}
+    .nav-cta{
+      background:var(--gold);color:#211805;
+      padding:12px 18px;border-radius:999px;
+      font-weight:950;
+      box-shadow:0 14px 40px rgba(212,160,23,.25);
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding-top:88px;
+      color:white;
+      background:
+        linear-gradient(90deg,rgba(6,21,13,.92) 0%,rgba(6,21,13,.74) 42%,rgba(6,21,13,.18) 100%),
+        url('hero-ecofresh.png') center/cover no-repeat;
+      position:relative;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(to bottom,rgba(6,21,13,.08),rgba(6,21,13,.28));
+      pointer-events:none;
+    }
+    .hero-content{
+      position:relative;z-index:2;
+      max-width:650px;
+      padding:70px 0;
+    }
+    .tag{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 16px;border-radius:999px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.16);
+      color:rgba(255,255,255,.82);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.75rem;
+      font-weight:950;
+    }
+    h1{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(3.4rem,7vw,7.6rem);
+      line-height:.86;
+      letter-spacing:-.075em;
+      margin:24px 0;
+    }
+    .hero p{
+      color:rgba(255,255,255,.84);
+      font-size:1.15rem;
+      line-height:1.8;
+      max-width:610px;
+    }
+    .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:16px 25px;
+      border-radius:999px;
+      border:0;
+      cursor:pointer;
+      font-weight:950;
+      transition:.25s ease;
+    }
+    .btn-gold{background:var(--gold);color:#201704;box-shadow:0 18px 50px rgba(212,160,23,.30)}
+    .btn-gold:hover{transform:translateY(-4px);filter:brightness(1.05)}
+    .btn-glass{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.20);color:white}
+    .btn-glass:hover{background:rgba(255,255,255,.16);transform:translateY(-4px)}
+
+    .section{padding:110px 0}
+    .center{text-align:center}
+    .label{
+      display:inline-flex;align-items:center;gap:8px;
+      color:var(--green);
+      background:rgba(46,125,50,.10);
+      padding:10px 16px;
+      border-radius:999px;
+      font-size:.76rem;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-weight:950;
+    }
+    .title{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.4rem,5vw,5rem);
+      line-height:.96;
+      letter-spacing:-.06em;
+      color:var(--dark);
+      margin:22px auto;
+      max-width:920px;
+    }
+    .subtitle{
+      color:var(--muted);
+      line-height:1.8;
+      font-size:1.1rem;
+      max-width:760px;
+      margin:auto;
+    }
+
+    .intro{
+      background:#fff;
+    }
+    .intro-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+    .intro-img{
+      border-radius:44px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      position:relative;
+    }
+    .intro-img img{
+      width:100%;
+      height:620px;
+      object-fit:cover;
+    }
+    .intro-text h2{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.5rem,5vw,4.7rem);
+      line-height:.95;
+      letter-spacing:-.06em;
+      color:var(--dark);
+      margin-bottom:26px;
+    }
+    .intro-text p{
+      color:var(--muted);
+      font-size:1.08rem;
+      line-height:1.9;
+      margin-bottom:22px;
+    }
+
+    .features{
+      background:linear-gradient(180deg,#fbfaf6,#f2ecd9);
+    }
+    .feature-grid{
+      margin-top:60px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:22px;
+    }
+    .feature{
+      background:rgba(255,255,255,.80);
+      border:1px solid rgba(17,32,24,.08);
+      border-radius:34px;
+      padding:30px;
+      box-shadow:0 20px 60px rgba(6,21,13,.08);
+      transition:.25s ease;
+      min-height:250px;
+    }
+    .feature:hover{transform:translateY(-10px);box-shadow:var(--shadow)}
+    .icon{
+      width:62px;height:62px;border-radius:22px;
+      display:grid;place-items:center;
+      background:linear-gradient(145deg,rgba(121,198,109,.22),rgba(212,160,23,.20));
+      font-size:1.85rem;
+      margin-bottom:22px;
+    }
+    .feature h3{font-size:1.18rem;margin-bottom:12px;color:var(--dark)}
+    .feature p{color:var(--muted);line-height:1.75;font-size:.94rem}
+
+    .product{
+      background:#06150d;
+      color:white;
+      position:relative;
+      overflow:hidden;
+    }
+    .product::before{
+      content:"";
+      position:absolute;inset:0;
+      background:
+        radial-gradient(circle at 20% 20%,rgba(212,160,23,.24),transparent 32%),
+        radial-gradient(circle at 80% 70%,rgba(121,198,109,.16),transparent 34%);
+    }
+    .product .container{position:relative;z-index:2}
+    .product .title{color:white}
+    .product .subtitle{color:rgba(255,255,255,.72)}
+    .product-grid{
+      margin-top:70px;
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:32px;
+      align-items:stretch;
+    }
+    .product-image{
+      border-radius:48px;
+      overflow:hidden;
+      box-shadow:0 40px 120px rgba(0,0,0,.34);
+      border:1px solid rgba(255,255,255,.12);
+      min-height:600px;
+    }
+    .product-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .product-cards{
+      display:grid;
+      gap:22px;
+    }
+    .product-card{
+      padding:30px;
+      border-radius:34px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.13);
+      backdrop-filter:blur(15px);
+    }
+    .product-card h3{
+      color:var(--gold);
+      font-size:1.35rem;
+      margin-bottom:10px;
+    }
+    .product-card p{
+      color:rgba(255,255,255,.74);
+      line-height:1.8;
+    }
+
+    .banner-section{
+      min-height:90vh;
+      display:flex;
+      align-items:center;
+      background:
+        linear-gradient(90deg,rgba(6,21,13,.88) 0%,rgba(6,21,13,.38) 55%,rgba(6,21,13,.10) 100%),
+        url('banner-ecofresh.png') center/cover no-repeat;
+      color:white;
+    }
+    .banner-content{max-width:620px}
+    .banner-content h2{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(3rem,7vw,7rem);
+      line-height:.86;
+      letter-spacing:-.075em;
+      margin:20px 0;
+    }
+    .banner-content p{
+      color:rgba(255,255,255,.80);
+      line-height:1.8;
+      font-size:1.12rem;
+    }
+
+    .how{
+      background:#fff;
+    }
+    .how-grid{
+      margin-top:60px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+    .step{
+      padding:34px;
+      border-radius:34px;
+      background:#fbfaf6;
+      border:1px solid rgba(17,32,24,.08);
+      box-shadow:0 18px 50px rgba(6,21,13,.08);
+    }
+    .num{
+      width:46px;height:46px;
+      border-radius:50%;
+      display:grid;place-items:center;
+      background:var(--gold);
+      color:#1d1504;
+      font-weight:950;
+      margin-bottom:20px;
+    }
+    .step h3{font-size:1.25rem;margin-bottom:12px;color:var(--dark)}
+    .step p{color:var(--muted);line-height:1.75}
+
+    .comparison{
+      background:linear-gradient(180deg,#f2ecd9,#fbfaf6);
+    }
+    .compare-grid{
+      margin-top:60px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+    }
+    .compare{
+      border-radius:42px;
+      padding:42px;
+      box-shadow:var(--shadow);
+      min-height:420px;
+    }
+    .old{background:#fff;color:var(--text)}
+    .new{background:linear-gradient(145deg,#0c2f20,#2E7D32);color:white}
+    .compare h3{font-size:2rem;margin-bottom:18px;letter-spacing:-.04em}
+    .compare p{line-height:1.8;color:inherit;opacity:.75}
+    .compare ul{list-style:none;display:grid;gap:14px;margin-top:28px}
+    .compare li{
+      padding:15px 17px;
+      border-radius:18px;
+      background:rgba(255,255,255,.12);
+      font-weight:850;
+    }
+    .old li{background:#f3efe4;color:#45534a}
+
+    .cta{
+      padding:120px 0;
+      text-align:center;
+      color:white;
+      background:
+        radial-gradient(circle at 50% 25%,rgba(212,160,23,.26),transparent 34%),
+        linear-gradient(135deg,#06150d,#0c2f20);
+    }
+    .cta .title{color:white}
+    .cta .subtitle{color:rgba(255,255,255,.75)}
+
+    footer{
+      padding:40px 0;
+      background:#030c07;
+      color:rgba(255,255,255,.62);
+      font-weight:600;
+    }
+    footer .container{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+    footer strong{color:white}
+
+    .reveal{
+      opacity:0;
+      transform:translateY(32px);
+      transition:.8s ease;
+    }
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media(max-width:960px){
+      .links,.nav-cta{display:none}
+      .hero{background-position:center right}
+      .hero-content{padding-top:90px}
+      .intro-grid,.product-grid,.how-grid,.compare-grid{grid-template-columns:1fr}
+      .feature-grid{grid-template-columns:1fr}
+      .section{padding:80px 0}
+      .product-image{min-height:auto}
+      .intro-img img{height:auto}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#inicio" class="brand">
+          <span class="brand-mark">🌿</span>
+          <span>EcoFresh®</span>
+        </a>
+        <div class="links">
+          <a href="#produto">Produto</a>
+          <a href="#beneficios">Benefícios</a>
+          <a href="#funciona">Como funciona</a>
+          <a href="#comparacao">Comparação</a>
+        </div>
+        <a class="nav-cta" href="#produto">Ver produto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-content reveal">
+          <span class="tag">Embalagem inteligente biodegradável</span>
+          <h1>A embalagem que protege o alimento e o planeta.</h1>
+          <p>
+            EcoFresh® utiliza o poder natural do óleo-resina de copaíba para conservar alimentos frescos,
+            reduzir desperdícios e substituir embalagens plásticas convencionais.
+          </p>
+          <div class="actions">
+            <a href="#produto" class="btn btn-gold">Conheça o produto ↓</a>
+            <a href="#funciona" class="btn btn-glass">Como funciona</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro">
+      <div class="container intro-grid">
+        <div class="intro-text reveal">
+          <span class="label">Marca conceito</span>
+          <h2>O futuro da conservação de alimentos é natural.</h2>
+          <p>
+            EcoFresh® foi desenvolvida como uma solução comercial para alimentos frescos. A proposta une design premium,
+            inovação tecnológica e responsabilidade ambiental em uma embalagem pronta para ser apresentada ao mercado.
+          </p>
+          <p>
+            Em vez de apenas envolver o alimento, a EcoFresh® atua como uma embalagem ativa, incorporando compostos naturais
+            da copaíba para auxiliar na conservação durante o armazenamento.
+          </p>
+          <a href="#produto" class="btn btn-gold">Ver imagem do produto</a>
+        </div>
+
+        <div class="intro-img reveal">
+          <img src="produto-ecofresh.png" alt="Produto EcoFresh em embalagem biodegradável com morangos">
+        </div>
+      </div>
+    </section>
+
+    <section class="section features" id="beneficios">
+      <div class="container center reveal">
+        <span class="label">Por que escolher EcoFresh®?</span>
+        <h2 class="title">Mais frescor, menos plástico e mais valor para a floresta.</h2>
+        <p class="subtitle">
+          Uma proposta criada para produtores, hortifrutis, supermercados e marcas que desejam vender alimentos frescos
+          com identidade sustentável.
+        </p>
+
+        <div class="feature-grid">
+          <div class="feature">
+            <div class="icon">🌿</div>
+            <h3>Biodegradável</h3>
+            <p>Produzida com materiais naturais, pensada para reduzir resíduos plásticos persistentes.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">💧</div>
+            <h3>Óleo de copaíba</h3>
+            <p>Valoriza um Produto Florestal Não Madeireiro brasileiro com alto potencial funcional.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">🛡️</div>
+            <h3>Proteção ativa</h3>
+            <p>Conceito de embalagem que auxilia na conservação natural dos alimentos.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">🍓</div>
+            <h3>Mais tempo fresco</h3>
+            <p>Ideal para frutas, hortaliças e produtos minimamente processados.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="product section" id="produto">
+      <div class="container">
+        <div class="center reveal">
+          <span class="label">Produto em destaque</span>
+          <h2 class="title">EcoFresh® pronta para ocupar as prateleiras.</h2>
+          <p class="subtitle">
+            Design comercial, apelo sustentável e tecnologia natural aplicada à conservação de alimentos.
+          </p>
+        </div>
+
+        <div class="product-grid">
+          <div class="product-image reveal">
+            <img src="banner-ecofresh.png" alt="Banner comercial EcoFresh com embalagem biodegradável">
+          </div>
+
+          <div class="product-cards reveal">
+            <div class="product-card">
+              <h3>Para alimentos frescos</h3>
+              <p>Aplicação em morangos, uvas, tomates, mangas, hortaliças e alimentos minimamente processados.</p>
+            </div>
+            <div class="product-card">
+              <h3>Para negócios sustentáveis</h3>
+              <p>Ideal para supermercados, hortifrutis, cooperativas, agricultura familiar e marcas premium.</p>
+            </div>
+            <div class="product-card">
+              <h3>Para a bioeconomia</h3>
+              <p>Valoriza a cadeia da copaíba e incentiva o manejo responsável dos recursos florestais.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="banner-section">
+      <div class="container">
+        <div class="banner-content reveal">
+          <span class="tag">Inovação a serviço da natureza</span>
+          <h2>Conservar melhor também é preservar.</h2>
+          <p>
+            Ao prolongar a vida útil dos alimentos e reduzir o uso de plástico, EcoFresh® transforma a embalagem
+            em uma aliada da sustentabilidade.
+          </p>
+          <div class="actions">
+            <a href="#produto" class="btn btn-gold">Ver produto</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section how" id="funciona">
+      <div class="container center reveal">
+        <span class="label">Como funciona</span>
+        <h2 class="title">Tecnologia simples de entender e forte para defender.</h2>
+        <p class="subtitle">
+          O diferencial da EcoFresh® está na combinação entre material biodegradável e compostos naturais da copaíba.
+        </p>
+
+        <div class="how-grid">
+          <div class="step">
+            <div class="num">1</div>
+            <h3>Filme biodegradável</h3>
+            <p>A embalagem é produzida com biopolímeros naturais, como amido, glicerina vegetal e fibras.</p>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <h3>Copaíba incorporada</h3>
+            <p>O óleo-resina de copaíba é adicionado em microcápsulas ou emulsão para formar uma camada ativa.</p>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <h3>Liberação controlada</h3>
+            <p>Durante o armazenamento, compostos bioativos são liberados gradualmente e auxiliam na conservação.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section comparison" id="comparacao">
+      <div class="container center reveal">
+        <span class="label">EcoFresh® x plástico comum</span>
+        <h2 class="title">Uma nova forma de embalar alimentos frescos.</h2>
+        <div class="compare-grid">
+          <div class="compare old">
+            <h3>Plástico convencional</h3>
+            <p>Protege fisicamente, mas permanece por muito tempo no ambiente e não atua diretamente na conservação ativa.</p>
+            <ul>
+              <li>Origem fóssil</li>
+              <li>Difícil decomposição</li>
+              <li>Baixo valor ambiental agregado</li>
+            </ul>
+          </div>
+          <div class="compare new">
+            <h3>EcoFresh®</h3>
+            <p>Une proteção, biodegradabilidade e compostos naturais de copaíba em uma embalagem com identidade sustentável.</p>
+            <ul>
+              <li>Base biodegradável</li>
+              <li>PFNM brasileiro</li>
+              <li>Conceito de embalagem ativa</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container reveal">
+        <span class="label">EcoFresh®</span>
+        <h2 class="title">Proteção natural. Frescor inteligente.</h2>
+        <p class="subtitle">
+          Uma embalagem conceito com potencial comercial para transformar a conservação de alimentos frescos.
+        </p>
+        <div class="actions" style="justify-content:center">
+          <a href="#inicio" class="btn btn-gold">Voltar ao início</a>
+          <a href="#produto" class="btn btn-glass">Ver produto novamente</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>EcoFresh®</strong> — Embalagem inteligente biodegradável com óleo-resina de copaíba.</p>
+      <p>PFNM • Bioeconomia • Sustentabilidade • Inovação</p>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('active');
+        }
+      });
+    },{threshold:.12});
+
+    reveals.forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>
